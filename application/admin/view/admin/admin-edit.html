@@ -1,0 +1,72 @@
+{include file='public/header'/}
+{include file='public/base_js'/}
+<body>
+    <div class="x-body">
+        <form class="layui-form" id="form-data">
+            <div class="layui-form-item">
+                <label for="username" class="layui-form-label">
+                    <span class="x-red">*</span>登录名
+                </label>
+                <div class="layui-input-inline">
+                    <input type="text" id="username" name="username" value="{$adminEdit.username}" required="" lay-verify="required" autocomplete="off" class="layui-input">
+                    <input type="text" id="id" name="id" value="{$adminEdit.id}" hidden>
+                </div>
+                <div class="layui-form-mid layui-word-aux">
+                    <span class="x-red">*</span>将会成为您唯一的登入名
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">
+                    <span class="x-red">*</span>角色</label>
+                <div class="layui-input-block">
+                    <input type="radio" name="role" lay-skin="primary" title="超级管理员" value="0" {if condition="$adminEdit.role eq 0"} checked="checked" {/if}>
+                    <input type="radio" name="role" lay-skin="primary" title="编辑人员" value="1" {if condition="$adminEdit.role eq 1"} checked="checked" {/if}>
+                    <input type="radio" name="role" lay-skin="primary" title="宣传人员" value="2" {if condition="$adminEdit.role eq 2"} checked="checked" {/if}>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label for="L_pass" class="layui-form-label">
+                    <span class="x-red">*</span>密码
+                </label>
+                <div class="layui-input-inline">
+                    <input type="password" id="L_pass" name="password" required="" value="" lay-verify="pass" autocomplete="off" class="layui-input">
+                </div>
+                <div class="layui-form-mid layui-word-au
+                    6到16个字符x">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label for="L_repass" class="layui-form-label">
+                </label>
+                <button type="button" class="layui-btn" lay-filter="add" lay-submit="">
+                    保存
+                </button>
+            </div>
+        </form>
+    </div>
+    <script>
+        layui.use(['form', 'layer'], function () {
+            $ = layui.jquery;
+            var form = layui.form
+                , layer = layui.layer;
+            form.verify({
+                nikename: function (value) {
+                    if (value.length < 5) {
+                        return '昵称至少得5个字符啊';
+                    }
+                }
+                , pass: [/(.+){6,12}$/, '密码必须6到12位']
+                , repass: function (value) {
+                    if ($('#L_pass').val() != $('#L_repass').val()) {
+                        return '两次密码不一致';
+                    }
+                }
+            });
+            form.on('submit(add)', function (data) {
+                push(this, '{:url('admin/saveAdmin')}', $('#form-data').serialize());
+            });
+        });
+    </script>
+</body>
+
+</html>

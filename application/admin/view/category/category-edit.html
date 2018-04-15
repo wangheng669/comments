@@ -1,0 +1,36 @@
+{include file='public/header'/} {include file='public/base_js'/}
+
+<body>
+    <div class="x-body">
+        <form class="layui-form" id="form-data">
+            <div class="layui-form-item">
+                <label for="cate_name" class="layui-form-label">
+                    <span class="x-red">*</span>分类名称
+                </label>
+                <div class="layui-input-inline">
+                    <input type="text" name="id" value="{$categoryEdit.id}" hidden>
+                    <input type="text" id="cate_name" value="{$categoryEdit.cate_name}" name="cate_name" required="" lay-verify="required" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label for="L_repass" class="layui-form-label">
+                </label>
+                <button type="button" class="layui-btn" lay-filter="add" lay-submit="">
+                    保存
+                </button>
+            </div>
+        </form>
+    </div>
+    <script>
+        layui.use(['form', 'layer'], function () {
+            $ = layui.jquery;
+            var form = layui.form
+                , layer = layui.layer;
+            form.on('submit(add)', function (data) {
+                push(this, '{:url('category/saveCategory')}', $('#form-data').serialize());
+            });
+        });
+    </script>
+</body>
+
+</html>

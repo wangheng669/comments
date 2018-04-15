@@ -1,0 +1,115 @@
+body{
+	background: #F3F3F3;
+}
+.main{
+	width: 1110px;
+	margin: 0 auto;
+}
+.article-cate {
+	margin-top: 80px;
+}
+.article-cate ul li{
+	margin-left: 12px;
+	float: left;
+	padding: 5px 10px;
+	border: 1px solid #ccc;
+	background: #fff;
+	border-radius: 2px;
+}
+.article-cate ul li a{
+	font-size: 14px;
+	text-decoration: none;
+	color: #000;
+}
+.article-cate-active{
+	background: #F4FEF6;
+}
+.article-cate-active a{
+	color: #4ACA6D;
+}
+
+/*文章列表*/
+.article-list{
+	width: 100%;
+	background: #fff;
+	padding: 20px;
+	margin-top: 50px;
+}
+.article-item{
+	border-bottom: 1px solid #ccc;
+	width: 100%;
+	padding: 10px 0;
+}
+.article-item a{
+	text-decoration: none;
+}
+.article-item span{
+	float: right;
+}
+
+
+
+/*文章内容*/
+.article-detail{
+	margin-top: 50px;
+	background: #fff;
+	padding-top: 80px;
+	padding-bottom: 10px;
+	padding-right: 10px;
+}
+.article-content{
+	width: 80%;
+	margin: 20px auto;
+	overflow: hidden;
+	line-height: 30px;
+}
+.article-title{
+	text-align: center;
+	font-size: 30px;
+	font-weight: bold;
+}
+
+.article-time{
+	margin-top: 50px;
+	float: right;
+	color: #ccc;
+}
+
+/*用户留言*/
+.article-comments{
+	margin-top: 80px;
+	background: #fff;
+}
+.comments-item{
+	margin-top: 10px;
+	padding: 10px;
+	position: relative;
+}
+.comments-item .top{
+	height: 50px;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+.username{
+	margin: 20px 0;
+	background: #fff;
+	height: 20px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+}
+.user-name{
+	font-size: 25px;
+}
+.user-content{
+	line-height: 30px;
+	float: left;
+}
+.user-time{
+	float: right;
+}
+button{
+	background: #fff;
+	border: 1px  solid #ccc;
+	border-radius: 5px;
+}

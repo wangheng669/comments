@@ -1,0 +1,27 @@
+{include file='public/header'/}
+<body>
+	<div class="main">
+		{if condition="$username"}
+		<div>欢迎你&nbsp;{$username}<a href="/index/login/exitLogin">退出</a></div>
+		{else/}
+		<div><a href="/index/login">请登陆</a></div>
+		{/if}
+		<div class="article-cate">
+			<ul>
+				{foreach $cateList as $v}
+				<li><a href="/index/index?id={$v.id}">{$v.cate_name}</a></li>
+				{/foreach}
+			</ul>
+		</div>
+		<div class="clearfloat"></div>
+		<div class="article-list">
+			{foreach $articleList as $v}
+			<div class="article-item">
+				<a href="/index/detail?id={$v.id}">{$v.title}</a>
+				<span>{$v.id|comments}条评论</span>
+			</div>
+			{/foreach}
+		</div>
+	</div>
+</body>
+</html>
